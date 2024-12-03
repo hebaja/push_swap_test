@@ -178,6 +178,24 @@ Test(push_swap_suite, test_push_swap_ra)
 	cr_assert_eq(1, stack_last(head)->value, "Expected result 1.");
 }
 
+Test(push_swap_suite, test_push_swap_rra)
+{
+	t_stack *head = create_stack_five();
+	rra(&head);
+	cr_assert_eq(5, stack_size(head));
+	cr_assert_eq(5, head->value, "Expected result 5.");
+	cr_assert_eq(4, stack_last(head)->value, "Expected result 4.");
+}
+
+Test(push_swap_suite, test_push_swap_rrb)
+{
+	t_stack *head = create_stack_five();
+	rrb(&head);
+	cr_assert_eq(5, stack_size(head));
+	cr_assert_eq(5, head->value, "Expected result 5.");
+	cr_assert_eq(4, stack_last(head)->value, "Expected result 4.");
+}
+
 Test(push_swap_suite, test_push_swap_rb)
 {
 	t_stack *head = create_stack_five();
@@ -203,4 +221,22 @@ Test(push_swap_suite, test_push_swap_rr)
 	cr_assert_eq(4, stack_last(stk_a)->value, "Expected result 4.");
 	cr_assert_eq(2, stk_b->value);
 	cr_assert_eq(3, stack_last(stk_b)->value);
+}
+
+Test(push_swap_suite, test_push_swap_rrr)
+{
+	t_stack *stk_a = create_stack_six();
+	t_stack	*stk_b = NULL;
+	pb(&stk_a, &stk_b);
+	pb(&stk_a, &stk_b);
+	pb(&stk_a, &stk_b);
+	cr_assert_eq(3, stack_size(stk_a));
+	cr_assert_eq(3, stack_size(stk_b));
+	rrr(&stk_a, &stk_b);
+	cr_assert_eq(3, stack_size(stk_a));
+	cr_assert_eq(3, stack_size(stk_b));
+	cr_assert_eq(6, stk_a->value, "Expected result 5.");
+	cr_assert_eq(5, stack_last(stk_a)->value, "Expected result 4.");
+	cr_assert_eq(1, stk_b->value);
+	cr_assert_eq(2, stack_last(stk_b)->value);
 }
