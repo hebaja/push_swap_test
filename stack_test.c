@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "../push_swap/push_swap.h"
-#include "../push_swap/libft/libft.h"
+#include "../push_swap/libft/include/libft.h"
 #include "criterion-2.4.2/include/criterion/assert.h"
 #include "criterion-2.4.2/include/criterion/criterion.h"
 #include "criterion-2.4.2/include/criterion/redirect.h"
